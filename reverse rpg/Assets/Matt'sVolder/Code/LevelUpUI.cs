@@ -1,26 +1,34 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class LevelUpUI : MonoBehaviour
 {
     public GameObject panel;
-    public PlayerStats player;
-
+    public PlayerStats PlayerStats;
+    public bool active = false;
     public Text statPointsText;
 
     void Start()
     {
         panel.SetActive(false);
-        player.onLevelUp += OpenMenu;
     }
 
     void Update()
     {
+        if (Keyboard.current != null && Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            
+            if (active == true)
+                CloseMenu();
+            else
+                OpenMenu();
+        }
         if (panel.activeSelf)
         {
-            statPointsText.text = "Stat Points: " + player.statPoints;
+            statPointsText.text = "Stat Points: " + PlayerStats.statPoints;
 
-            if (player.statPoints <= 0)
+            if (PlayerStats.statPoints <= 0)
             {
                 CloseMenu();
             }
@@ -31,38 +39,40 @@ public class LevelUpUI : MonoBehaviour
     {
         panel.SetActive(true);
         Time.timeScale = 0f;
+        active = true;
     }
 
     void CloseMenu()
     {
         panel.SetActive(false);
         Time.timeScale = 1f;
+        active = false;
     }
 
     // === Knoppen ===
 
-    public void UpgradeHP()
+    public void UpgradeHPButton()
     {
-        player.UpgradeHP();
+        PlayerStats.UpgradeHP();
     }
 
-    public void UpgradeDefense()
+    public void UpgradeDefenseButton()
     {
-        player.UpgradeDefense();
+        PlayerStats.UpgradeDefense();
     }
 
-    public void UpgradeAttack()
+    public void UpgradeAttackButton()
     {
-        player.UpgradeAttack();
+        PlayerStats.UpgradeAttack();
     }
 
-    public void UpgradeAttackSpeed()
+    public void UpgradeAttackSpeedButton()
     {
-        player.UpgradeAttackSpeed();
+        PlayerStats.UpgradeAttackSpeed();
     }
 
-    public void UpgradeMoveSpeed()
+    public void UpgradeMoveSpeedButton()
     {
-        player.UpgradeMoveSpeed();
+        PlayerStats.UpgradeMoveSpeed();
     }
 }

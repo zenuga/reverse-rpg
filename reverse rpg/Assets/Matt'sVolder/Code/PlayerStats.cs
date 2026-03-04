@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
     public int attack = 10;
     public float attackSpeed = 1f;
     public float moveSpeed = 5f;
+    
+    public static PlayerStats instance;
 
     void Update()
     {
