@@ -1,0 +1,52 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class ItemPickupRaycast : MonoBehaviour
+{
+    [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private float raycastDistance = 5f;
+    [SerializeField] private LayerMask itemLayerMask;
+
+    private Camera mainCamera;
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+        
+        if (inventoryManager == null)
+        {
+            inventoryManager = GetComponent<InventoryManager>();
+        }
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            AttemptItemPickup();
+        }
+    }
+
+    private void AttemptItemPickup()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+        
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance, itemLayerMask))
+        {
+            ItemPickup itemPickup = hit.collider.GetComponent<ItemPickup>();
+            
+            if (itemPickup != null)
+            {
+                if (inventoryManager.AddItem(itemPickup.itemData))
+                {
+                    Debug.Log("Picked up: " + itemPickup.itemData.itemName);
+                    Destroy(hit.collider.gameObject);
+                }
+                else
+                {
+                    Debug.Log("Inventory is full!");
+                }
+            }
+        }
+    }
+}
