@@ -142,7 +142,7 @@ MonoBehaviour:
   normalHeight: 2
   crouchCameraHeight: 0.3
   normalCameraHeight: 0.9
-  mouseSensitivity: 100
+  mouseSensitivity: 400
 --- !u!114 &715809579945246074
 MonoBehaviour:
   m_ObjectHideFlags: 0
