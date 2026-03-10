@@ -6,8 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/SceneDario.unity
     guid: ddc57ac7f6b63644dbc94f1b4812a131
+=======
+    path: Assets/Scenes/SceneLars.unity
+    guid: 2f1bc70e4aa18c84d9ebaf7f1120a906
+>>>>>>> Stashed changes
   - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
