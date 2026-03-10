@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MeleeWeapon : BaseWeaponScript
 {
+    public float damage = 20f;
     public float attackRange = 2f;
     public LayerMask enemyLayer;
 

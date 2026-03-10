@@ -2,8 +2,19 @@ using UnityEngine;
 
 public abstract class projectile : MonoBehaviour
 {
-    LayerMask enemyLayer;
+    [SerializeField] LayerMask enemyLayer;
     public abstract float damage { get; }
+    private float lifeTime = 5f;
+
+    void Update()
+    {
+        lifeTime -= Time.deltaTime;
+
+        if (lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,5 +27,6 @@ public abstract class projectile : MonoBehaviour
                 healthSystem.TakeDamage(damage);
             }
         }
+        Destroy(gameObject);
     }
 }

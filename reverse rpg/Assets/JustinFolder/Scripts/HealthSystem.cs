@@ -4,6 +4,7 @@ public class HealthSystem : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
+    public float healthStatus => currentHealth / maxHealth;
  
     void Start()
     {
