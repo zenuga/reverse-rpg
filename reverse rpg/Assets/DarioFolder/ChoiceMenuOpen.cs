@@ -24,4 +24,5 @@ public class ChoiceMenuOpen : MonoBehaviour
             }
         }
     }
+
 }
