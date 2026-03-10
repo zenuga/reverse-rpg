@@ -471,14 +471,20 @@ MonoBehaviour:
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1028309249
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!4 &1028309252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1175162260495233607, guid: a0ea2263132cab44493391ef4c7d016e, type: 3}
   m_PrefabInstance: {fileID: 527653395178546329}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1224689106
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
