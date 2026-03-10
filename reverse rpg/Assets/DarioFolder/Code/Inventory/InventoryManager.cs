@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -25,7 +24,7 @@ public class InventoryManager : MonoBehaviour
     }
     private void Update()
     {
-        float scroll = Mouse.current.scroll.y.ReadValue();
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0)
         {
             ChangeSelectedSlot(selectedSlot - 1);
@@ -38,14 +37,14 @@ public class InventoryManager : MonoBehaviour
         // Number keys 1-8 to select slots
         for (int i = 0; i < 8; i++)
         {
-            if (Keyboard.current[Key.Digit1 + i].wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 ChangeSelectedSlot(i);
             }
         }
         
         // Activate selected item with right mouse button
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        if (Input.GetMouseButtonDown(1))
         {
             ActivateSelectedItem();
         }

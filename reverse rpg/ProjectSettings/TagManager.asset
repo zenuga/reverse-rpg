@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Quest
+  - ItemSlot
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - ItemToPickup
   m_SortingLayers:
   - name: Default
     uniqueID: 0
