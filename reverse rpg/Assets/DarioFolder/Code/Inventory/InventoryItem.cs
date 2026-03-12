@@ -84,7 +84,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             rect.anchorMax = new Vector2(0.5f, 0.5f);
             rect.pivot = new Vector2(0.5f, 0.5f);
             rect.anchoredPosition = Vector2.zero;
-            rect.sizeDelta = new Vector2(80, 80);
+            rect.sizeDelta = new Vector2(45, 45);
         }
         
         UpdateQuantityDisplay();

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ItemPickupRaycast : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class ItemPickupRaycast : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             AttemptItemPickup();
         }

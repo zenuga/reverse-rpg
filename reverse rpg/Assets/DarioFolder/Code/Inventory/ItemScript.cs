@@ -26,11 +26,9 @@ public class ItemScript : ScriptableObject
 
 public enum ItemType
 {
-    BuildingBlock,
     Tool,
     Weapon,
-    Armor,
-    Consumable
+    Armor
 }
 
 public enum ActionType
