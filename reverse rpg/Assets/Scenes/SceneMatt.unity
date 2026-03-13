@@ -259,16 +259,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7884756560465370822, guid: 4a5553a9f9767cc4f9701cd6d4b8df23, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1218329108}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: UpgradeDefenseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: UpgradeATKButton
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &79098303
@@ -525,7 +525,7 @@ PrefabInstance:
     - target: {fileID: -7885096815372423415, guid: 779ebe91d4f5aa741b43fa3d3ca75267, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1218329108}
     - target: {fileID: -7885096815372423415, guid: 779ebe91d4f5aa741b43fa3d3ca75267, type: 3}
       propertyPath: playerLevel
       value: 
@@ -723,13 +723,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7884756560465370822, guid: 4a5553a9f9767cc4f9701cd6d4b8df23, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1218329108}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: UpgradeMoveSpeedButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -993,13 +993,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7884756560465370822, guid: 4a5553a9f9767cc4f9701cd6d4b8df23, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1218329108}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: UpgradeAttackSpeedButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1593,10 +1593,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 02e83437b88c83f4caf7b57a767aa57c, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 1218329108}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: UpgradeHPButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753db055641e1674da5bffa2ccb840cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  player: {fileID: 0}
+  player: {fileID: 1218329108}
   expAmount: 25
 --- !u!1 &1592648191
 GameObject:
@@ -2470,13 +2470,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7884756560465370822, guid: 4a5553a9f9767cc4f9701cd6d4b8df23, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1218329108}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: UpgradeAttackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2827,7 +2827,7 @@ PrefabInstance:
     - target: {fileID: -7885096815372423415, guid: 779ebe91d4f5aa741b43fa3d3ca75267, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1218329108}
     - target: {fileID: -7885096815372423415, guid: 779ebe91d4f5aa741b43fa3d3ca75267, type: 3}
       propertyPath: playerLevel
       value: 
@@ -3162,7 +3162,7 @@ PrefabInstance:
     - target: {fileID: -7885096815372423415, guid: 779ebe91d4f5aa741b43fa3d3ca75267, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1218329108}
     - target: {fileID: -7885096815372423415, guid: 779ebe91d4f5aa741b43fa3d3ca75267, type: 3}
       propertyPath: playerLevel
       value: 
