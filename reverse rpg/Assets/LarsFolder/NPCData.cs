@@ -2,10 +2,22 @@ using UnityEngine;
 
 public class NPCData : MonoBehaviour
 {
-    // 1. This creates a text box in the Unity Inspector
     public string npcName;
-
-    // 2. This creates a LIST (Array) of text boxes in the Inspector
+    
+    [Header("Initial Dialogue")]
     [TextArea(3, 10)]
     public string[] dialoguePages; 
+
+    [Header("Reward Dialogue")]
+    [TextArea(3, 10)]
+    public string[] rewardDialoguePages; // NEW: The dialogue after quest is done
+
+    [Header("Quest Settings")]
+    public string questName;
+    public string questTask;
+    public int questAmount;
+    public string requiredTag;
+
+    [Header("Completion Reward")]
+    public GameObject objectToSpawn; 
 }

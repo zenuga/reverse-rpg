@@ -5,7 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Quest
+<<<<<<< Updated upstream
   - ItemSlot
+=======
+  - LostBtn
+  - Items
+  - Rebuild
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

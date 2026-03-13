@@ -7,15 +7,15 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI textLabel;
     public TextMeshProUGUI npcNameLabel;
     public GameObject activeQuests;
+    public QuestControl questControl;
     public Button nextButton;
     public Button acceptButton;
     public Button exitButton;
     public GameObject mainFrame;
 
     public int currentPage = 0;
-    
-    // This stores the data of the NPC we are currently talking to
     public NPCData activeNPC;
+    private bool isShowingRewardDialogue = false; // Tracks which list we are using
 
     void Start()
     {
@@ -23,79 +23,94 @@ public class DialogueManager : MonoBehaviour
         exitButton.onClick.AddListener(OnExitButtonClicked);
         acceptButton.onClick.AddListener(onAcceptButtonClicked);
         
-        // Hide UI and buttons at start
         mainFrame.SetActive(false);
         acceptButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
     }
 
-    // This is the "Bridge" function the Raycast will call
-    // This MUST be 'public' so the Raycast script can "see" it
-public void OpenDialogue(NPCData npc) 
-{
-    activeNPC = npc; 
-    currentPage = 0;
-    mainFrame.SetActive(true);
-    
-    // Reset buttons for the new conversation
-    nextButton.gameObject.SetActive(true);
-    acceptButton.gameObject.SetActive(false);
-    exitButton.gameObject.SetActive(false);
-}
-
-    void Update()
+    public void OpenDialogue(NPCData npc) 
     {
-        // If no NPC is selected, don't do anything
-        if (activeNPC == null) return;
+        activeNPC = npc; 
+        currentPage = 0;
+        mainFrame.SetActive(true);
 
-        // Automatically pull the text from the NPC's list based on the page number
-        if (currentPage < activeNPC.dialoguePages.Length)
+        if (npcNameLabel != null) npcNameLabel.text = npc.npcName;
+
+        // CHECK: Is the quest finished?
+        if (questControl != null && questControl.IsQuestDone(npc.requiredTag))
         {
-            textLabel.text = activeNPC.dialoguePages[currentPage];
+            isShowingRewardDialogue = true;
+        }
+        else 
+        {
+            isShowingRewardDialogue = false;
         }
 
-        // Check if we are on the LAST page of that specific NPC's dialogue
-        if (currentPage == activeNPC.dialoguePages.Length - 1)
+        UpdateDialogueUI();
+    }
+
+    void UpdateDialogueUI()
+    {
+        if (activeNPC == null) return;
+
+        string[] currentPages = isShowingRewardDialogue ? activeNPC.rewardDialoguePages : activeNPC.dialoguePages;
+
+        if (currentPage < currentPages.Length)
+        {
+            textLabel.text = currentPages[currentPage];
+        }
+
+        // Handle Button Visibility
+        if (currentPage == currentPages.Length - 1)
         {
             nextButton.gameObject.SetActive(false);
-            acceptButton.gameObject.SetActive(true);
-            exitButton.gameObject.SetActive(true);
+            
+            if (isShowingRewardDialogue)
+            {
+                // If it's the reward dialogue, just show exit (the "Collect" happens)
+                exitButton.gameObject.SetActive(true);
+                acceptButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                // If it's the first time, show accept
+                acceptButton.gameObject.SetActive(true);
+                exitButton.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            nextButton.gameObject.SetActive(true);
+            acceptButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(false);
         }
     }
 
     void OnNextButtonClicked()
     {
-        // Only increment if there is another page to go to
-        if (activeNPC != null && currentPage < activeNPC.dialoguePages.Length - 1)
+        string[] currentPages = isShowingRewardDialogue ? activeNPC.rewardDialoguePages : activeNPC.dialoguePages;
+        
+        if (activeNPC != null && currentPage < currentPages.Length - 1)
         {
             currentPage++;
+            UpdateDialogueUI();
         }
     }
 
     void OnExitButtonClicked()
     {
         activeNPC = null; 
-
-        // NOW this line will work because we defined it at the top!
-        if (npcNameLabel != null)
-        {
-            npcNameLabel.text = ""; 
-        }
-
         mainFrame.SetActive(false);
     }
 
     void onAcceptButtonClicked()
     {
-        activeNPC = null; 
-
-        // NOW this line will work because we defined it at the top!
-        if (npcNameLabel != null)
+        if (activeNPC != null && questControl != null)
         {
-            npcNameLabel.text = ""; 
+            questControl.AcceptQuest(activeNPC);
         }
-
+        activeNPC = null; 
         mainFrame.SetActive(false);
-        activeQuests.SetActive(true);
+        if (activeQuests != null) activeQuests.SetActive(true);
     }
 }
