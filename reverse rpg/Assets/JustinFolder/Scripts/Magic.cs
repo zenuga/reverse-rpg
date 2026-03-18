@@ -2,14 +2,14 @@ using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bow : RangedWeapon
+public class Magic : RangedWeapon
 {
     public override void Init()
     {
-        attackChargeTime = 1;
-        attackCooldown = 0;
-        baseAttackCooldown = 0;
-        projectileSpeed = 20;
+        attackChargeTime = 0;
+        attackCooldown = 1;
+        baseAttackCooldown = 1;
+        projectileSpeed = 40;
     }
 
     public override void Attack()

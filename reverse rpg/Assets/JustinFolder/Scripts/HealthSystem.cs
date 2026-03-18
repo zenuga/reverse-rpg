@@ -1,10 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
     public float maxHealth = 100f;
+    [SerializeField]
     private float currentHealth;
-    public float healthStatus => currentHealth / maxHealth;
+    
  
     void Start()
     {

@@ -355,6 +355,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 795639442946086135, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+      propertyPath: weapon1
+      value: 
+      objectReference: {fileID: 1123847604}
+    - target: {fileID: 795639442946086135, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+      propertyPath: weapon2
+      value: 
+      objectReference: {fileID: 1536882335}
     - target: {fileID: 2858743867922926476, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.3885
@@ -399,12 +407,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapons
       objectReference: {fileID: 0}
+    - target: {fileID: 5449691319628008241, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 1123847604}
     - target: {fileID: 8315501486622562631, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1064161340}
+    - target: {fileID: 8315501486622562631, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+      propertyPath: attackRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315501486622562631, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+      propertyPath: hitLayer.m_Bits
+      value: 32768
+      objectReference: {fileID: 0}
     - target: {fileID: 8356380765477333495, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
       propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1064161340}
+    - target: {fileID: 8356380765477333495, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+      propertyPath: _firePoint
       value: 
       objectReference: {fileID: 1064161340}
     - target: {fileID: 8356380765477333495, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
@@ -535,6 +559,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1175162260495233607, guid: a0ea2263132cab44493391ef4c7d016e, type: 3}
   m_PrefabInstance: {fileID: 1064161339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1123847604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8356380765477333495, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+  m_PrefabInstance: {fileID: 950053248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213a94f3a77225d4f8bd23eaef8395d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bow
 --- !u!1001 &1350351925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -592,6 +627,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e25279bb7b518d94aa6ae26fe3dbeb0e, type: 3}
+--- !u!114 &1536882335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8315501486622562631, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+  m_PrefabInstance: {fileID: 950053248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236525280b69cbf47b2e84aad21996dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeWeapon
 --- !u!1001 &2118394194
 PrefabInstance:
   m_ObjectHideFlags: 0

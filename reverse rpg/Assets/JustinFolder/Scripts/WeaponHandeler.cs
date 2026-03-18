@@ -2,26 +2,13 @@ using UnityEngine;
 
 public class WeaponHandeler : MonoBehaviour
 {
-    public BaseWeaponScript meleeWeapon;
-    public BaseWeaponScript rangedWeapon;
+    public BaseWeaponScript weapon1;
+    public BaseWeaponScript weapon2;
     private BaseWeaponScript currentWeapon;
 
     void Start()
     {
-        currentWeapon = meleeWeapon;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentWeapon = meleeWeapon;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentWeapon = rangedWeapon;
-        }
+        currentWeapon = weapon1 ;
     }
 
     public BaseWeaponScript GetCurrentWeapon()
