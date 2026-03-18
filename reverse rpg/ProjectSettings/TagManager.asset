@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - Quest
-<<<<<<< Updated upstream
-  - ItemSlot
-=======
-  - LostBtn
-  - Items
-  - Rebuild
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -27,9 +19,6 @@ TagManager:
   - 
   - 
   - 
-  - Player
-  - Enemy
-  - Projectile
   - 
   - 
   - 
@@ -44,17 +33,13 @@ TagManager:
   - 
   - 
   - 
-  - ItemToPickup
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
   m_RenderingLayers:
   - Default
-  - Light Layer 1
-  - Light Layer 2
-  - Light Layer 3
-  - Light Layer 4
-  - Light Layer 5
-  - Light Layer 6
-  - Light Layer 7

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using NUnit.Framework;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public Button acceptButton;
     public Button exitButton;
     public GameObject mainFrame;
+    private IsTalking currentTalkingScript;
 
     public int currentPage = 0;
     public NPCData activeNPC;
@@ -31,6 +33,11 @@ public class DialogueManager : MonoBehaviour
     public void OpenDialogue(NPCData npc) 
     {
         activeNPC = npc; 
+        currentTalkingScript = npc.GetComponent<IsTalking>();
+        if (currentTalkingScript != null)
+        {
+            currentTalkingScript.StartTalking();
+        }
         currentPage = 0;
         mainFrame.SetActive(true);
 
@@ -99,12 +106,20 @@ public class DialogueManager : MonoBehaviour
 
     void OnExitButtonClicked()
     {
+        if (currentTalkingScript != null)
+        {
+            currentTalkingScript.StopTalking();
+        }
         activeNPC = null; 
         mainFrame.SetActive(false);
     }
 
     void onAcceptButtonClicked()
     {
+        if (currentTalkingScript != null)
+        {
+            currentTalkingScript.StopTalking();
+        }
         if (activeNPC != null && questControl != null)
         {
             questControl.AcceptQuest(activeNPC);
