@@ -9,7 +9,7 @@ public class Bow : RangedWeapon
         attackChargeTime = 1;
         attackCooldown = 0;
         baseAttackCooldown = 0;
-        projectileSpeed = 20;
+        projectileSpeed = 40;
     }
 
     public override void Attack()

@@ -27,8 +27,6 @@ public class RangedWeapon : BaseWeaponScript
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.linearVelocity = firePoint.forward * projectileSpeed;
 
-            Debug.Log("Attacking with ranged weapon");
-
             attackCooldown = baseAttackCooldown;
 
             currentAttackCharge = 0f;
@@ -38,8 +36,6 @@ public class RangedWeapon : BaseWeaponScript
             
         if (currentAttackCharge <= attackChargeTime && !Input.GetMouseButton(0) && isAttacking)
         {
-            Debug.Log("Attack released before fully charged");
-
             currentAttackCharge = 0f;
 
             isAttacking = false;
@@ -55,7 +51,7 @@ public class RangedWeapon : BaseWeaponScript
         {
             currentAttackCharge += Time.deltaTime * 1f;
 
-            Debug.Log("Charging attack:" + currentAttackCharge);
+            Debug.Log("Charging attack: " + currentAttackCharge.ToString("F2") + " seconds");
 
             isAttacking = true;
         }

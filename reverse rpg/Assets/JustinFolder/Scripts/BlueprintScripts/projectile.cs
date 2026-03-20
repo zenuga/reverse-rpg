@@ -3,9 +3,9 @@ using UnityEngine.Rendering;
 
 public class projectile : MonoBehaviour
 {
-    public virtual float lifeTime { get; set; }
+    public float lifeTime;
     public LayerMask enemyLayer;
-    public virtual float damage { get; }
+    public float damage;
 
     void Update()
     {
@@ -27,13 +27,8 @@ public class projectile : MonoBehaviour
             if (healthSystem != null)
             {
                 healthSystem.TakeDamage(damage);
-                Debug.Log("Hit");
-            }
-            else
-            {
-                Debug.Log("No HealthSystem found on " + collision.gameObject.name);
+                Debug.Log("Hit " + collision.gameObject.name + " for " + damage + " damage");
             }
         }
-        Debug.Log("Collided with: " + collision.gameObject.name);
     }
 }

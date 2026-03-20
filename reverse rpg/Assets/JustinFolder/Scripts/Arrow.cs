@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class Arrow : projectile
 {
-    public override float lifeTime { get; set; } = 90f;
-    public override float damage { get; } = 10f;
     public Rigidbody rb;
+    
+    void Update()
+    {
+        damage = 10f;
+        lifeTime = 90f;
+    }
 
     public override void OnCollisionEnter(Collision collision)
     {
+        base.OnCollisionEnter(collision);
+        
         ContactPoint contact = collision.contacts[0];
 
         transform.position = contact.point;
