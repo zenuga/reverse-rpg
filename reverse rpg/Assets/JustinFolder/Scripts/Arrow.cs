@@ -6,7 +6,7 @@ public class Arrow : projectile
     
     void Update()
     {
-        damage = 10f;
+        damage = 50f;
         lifeTime = 90f;
     }
 

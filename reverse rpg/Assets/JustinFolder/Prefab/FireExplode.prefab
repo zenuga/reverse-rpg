@@ -4890,5 +4890,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   explosionRadius: 5
-  force: 1500
+  force: 150
   explodeOnStart: 0
