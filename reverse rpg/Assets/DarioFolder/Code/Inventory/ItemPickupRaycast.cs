@@ -65,6 +65,7 @@ public class ItemPickupRaycast : MonoBehaviour
         // Screen center is (Screen.width/2, Screen.height/2) - middle of screen
         // Z=0 means on the screen plane
         Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+        Debug.Log("Casting ray from camera center: " + ray.origin + " in direction: " + ray.direction);
         
         // Cast the ray out to raycastDistance units, checking only itemLayerMask layers
         // out: contains hit information if something is hit
