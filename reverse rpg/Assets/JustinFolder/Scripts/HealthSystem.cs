@@ -1,15 +1,11 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
     public float maxHealth = 100f;
-    [SerializeField]
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
     public int armor = 0;
-    private int armorBonus = 0;
-    
- 
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -17,38 +13,58 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        float finalDamage = Mathf.Max(damage - armor, 0);
+        currentHealth -= finalDamage;
 
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-    
+
     public void IncreaseMaxHealth(int amount)
     {
-        float healthPercent = currentHealth / maxHealth;
         maxHealth += amount;
-        currentHealth = maxHealth * healthPercent;
-        armorBonus += amount;
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
     }
-    
-    public void DecreaseMaxHealth(int amount)
+
+    public void ApplySlotEffect(ItemScript item)
     {
-        maxHealth -= amount;
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
-        armorBonus -= amount;
+        if (item == null) return;
+
+        switch (item.slotStatType)
+        {
+            case SlotStatType.MaxHealth:
+                maxHealth += item.slotStatValue;
+                currentHealth = Mathf.Min(currentHealth + item.slotStatValue, maxHealth);
+                break;
+
+            case SlotStatType.Armor:
+                armor += item.slotStatValue;
+                break;
+        }
     }
-    
-    public void healthincrease()
+
+    public void RemoveSlotEffect(ItemScript item)
     {
-        maxHealth = maxHealth + armor;
-        currentHealth = maxHealth;
+        if (item == null) return;
+
+        switch (item.slotStatType)
+        {
+            case SlotStatType.MaxHealth:
+                maxHealth -= item.slotStatValue;
+                currentHealth = Mathf.Min(currentHealth, maxHealth);
+                break;
+
+            case SlotStatType.Armor:
+                armor -= item.slotStatValue;
+                break;
+        }
     }
 
     void Die()
     {
-        Debug.Log(gameObject.name + "died.");
+        Debug.Log(gameObject.name + " died.");
         Destroy(gameObject);
     }
 }

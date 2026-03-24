@@ -17,8 +17,8 @@ MonoBehaviour:
   description: 'Cereal or milk wich comes first? Doesn''t matter we all know the
     bowl comes last '
   maxStackSize: 1
-  armorBonus: 0
-  healthBonus: 30
+  slotStatType: 1
+  slotStatValue: 0
   worldModel: {fileID: 0}
   weaponscript: {fileID: 0}
   image: {fileID: 21300000, guid: 419a22896f8c10141892e4e23311ba45, type: 3}

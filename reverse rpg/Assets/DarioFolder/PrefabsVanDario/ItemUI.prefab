@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2182605837652420301}
   - component: {fileID: 6296491263806389008}
   - component: {fileID: 6753145475964849560}
+  - component: {fileID: 3204592388144300863}
   m_Layer: 5
   m_Name: ItemUI
   m_TagString: Untagged
@@ -88,7 +89,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee09fac9d232bc4a95064751c5ae275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryItem
-  image: {fileID: 0}
-  quantityText: {fileID: 0}
   item: {fileID: 0}
   parentAfterDrag: {fileID: 0}
+--- !u!225 &3204592388144300863
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609433679195416473}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
