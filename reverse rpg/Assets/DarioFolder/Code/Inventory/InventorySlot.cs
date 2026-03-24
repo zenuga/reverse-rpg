@@ -8,6 +8,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     public Image image;
     public Color selected, notselected;
     public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI statText;
+
     public ItemType slotType = ItemType.General;
     [SerializeField] private HealthSystem healthSystem;
 
@@ -43,6 +45,14 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         else
         {
             descriptionText.text = "";
+        }
+                if (inventoryItem != null && inventoryItem.item != null && !string.IsNullOrEmpty(inventoryItem.item.stat))
+        {
+            statText.text = inventoryItem.item.stat;
+        }
+        else
+        {
+            statText.text = "";
         }
     }
 

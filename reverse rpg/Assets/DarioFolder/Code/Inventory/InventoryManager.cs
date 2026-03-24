@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventoryItemPrefab;
     [SerializeField] private Transform playerHand;
     [SerializeField] private HealthSystem healthSystem;
+    [SerializeField] private CombatControler combatController;
 
     private int selectedSlot = -1;
     private GameObject equippedItemInstance;
@@ -28,28 +30,26 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void ChangeSelectedSlot(int newValue)
+void ChangeSelectedSlot(int newValue)
+{
+    if (inventorySlots == null || inventorySlots.Length == 0) return;
+
+    if (newValue >= inventorySlots.Length) newValue = 0;
+    if (newValue < 0) newValue = inventorySlots.Length - 1;
+
+    if (selectedSlot >= 0 && inventorySlots[selectedSlot] != null)
     {
-        if (inventorySlots == null || inventorySlots.Length == 0) return;
-
-        if (newValue >= inventorySlots.Length) newValue = 0;
-        if (newValue < 0) newValue = inventorySlots.Length - 1;
-
-        if (selectedSlot >= 0 && inventorySlots[selectedSlot] != null)
-        {
-            inventorySlots[selectedSlot].deselect();
-        }
-
-        if (inventorySlots[newValue] != null)
-        {
-            inventorySlots[newValue].select();
-            selectedSlot = newValue;
-
-            ItemScript selectedItem = GetSelectedItem();
-            if (selectedItem != null) EquipItem(selectedItem);
-            else UnequipItem();
-        }
+        inventorySlots[selectedSlot].deselect();
     }
+
+    if (inventorySlots[newValue] != null)
+    {
+        inventorySlots[newValue].select();
+        selectedSlot = newValue;
+
+        ItemScript selectedItem = GetSelectedItem();
+    }
+}
 
     void EquipItem(ItemScript item)
     {

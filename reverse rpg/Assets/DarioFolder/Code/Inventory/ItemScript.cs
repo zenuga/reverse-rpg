@@ -33,6 +33,7 @@ public class ItemScript : ScriptableObject
     
     [TextArea(2, 4)]
     public string description;
+    public string stat;
     
     public int maxStackSize = 1;
 
@@ -41,6 +42,5 @@ public class ItemScript : ScriptableObject
     public int slotStatValue = 0;
 
     public GameObject worldModel;
-    public MonoBehaviour weaponscript;
     public Sprite image;
 }
