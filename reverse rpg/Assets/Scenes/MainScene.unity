@@ -5489,7 +5489,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 56975659}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7818157787489867837, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+    - {fileID: 658533290796679627, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
+    - {fileID: 6523529782226468385, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8c8d93c68b608409228a3d251090de, type: 3}
@@ -6235,6 +6238,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e25279bb7b518d94aa6ae26fe3dbeb0e, type: 3}
+<<<<<<< Updated upstream
 --- !u!1 &2011729512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6321,6 +6325,12 @@ CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
+=======
+--- !u!114 &2116596108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 164530686184802892, guid: ee7d7f4762ad5674e81057e4b22d5445, type: 3}
+  m_PrefabInstance: {fileID: 5136151267449725642}
+>>>>>>> Stashed changes
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011729512}
   m_CullTransparentMesh: 1
