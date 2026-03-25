@@ -19,5 +19,5 @@ MonoBehaviour:
   maxStackSize: 1
   slotStatType: 0
   slotStatValue: 0
-  worldModel: {fileID: 4173459137518843951, guid: 090dc90f294fee8438bfd8c3e568a9ae, type: 3}
+  worldModel: {fileID: 4134382913037883475, guid: 43c6f7996f86e2a459df958d6db5b0b7, type: 3}
   image: {fileID: 21300000, guid: 2a94d148977ec6f499cf36f6cfa4e31b, type: 3}
