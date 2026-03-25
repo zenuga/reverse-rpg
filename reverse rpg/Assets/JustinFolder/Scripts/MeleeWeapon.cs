@@ -1,4 +1,3 @@
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class MeleeWeapon : BaseWeaponScript
@@ -7,20 +6,8 @@ public class MeleeWeapon : BaseWeaponScript
     public float attackRange = 2f;
     public Transform firePoint;
     public LayerMask hitLayer;
+    int ignoreLayerMask = ~(1 << 14);
     float attackCooldown = 1f;
-
-    private void Awake()
-    {
-        if (firePoint == null)
-        {
-            Camera cam = Camera.main;
-
-            if (cam != null)
-            {
-                firePoint = cam.transform;
-            }
-        }
-    }
 
     void Update()
     {
@@ -29,8 +16,6 @@ public class MeleeWeapon : BaseWeaponScript
     
     public override void Attack()
     {
-        base.Attack();
-        
         RaycastHit hit;
 
         if (attackCooldown <= 0f)
