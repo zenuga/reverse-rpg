@@ -83,3 +83,4 @@ MonoBehaviour:
   attackCooldown: 0
   baseAttackCooldown: 0
   attackChargeTime: 0
+  fireSound: {fileID: 8300000, guid: 9158f0b391cd3e94d960fc0258f08fd0, type: 3}

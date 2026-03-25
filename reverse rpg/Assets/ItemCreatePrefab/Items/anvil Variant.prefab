@@ -61,7 +61,10 @@ PrefabInstance:
       addedObject: {fileID: 8111683882265420369}
     - targetCorrespondingSourceObject: {fileID: 1568178696956901717, guid: af89d3d8de047a943b4c65b52f771065, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6267527810164287782}
+      addedObject: {fileID: -1685261364140737327}
+    - targetCorrespondingSourceObject: {fileID: 1568178696956901717, guid: af89d3d8de047a943b4c65b52f771065, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6682523635163501119}
   m_SourcePrefab: {fileID: 100100000, guid: af89d3d8de047a943b4c65b52f771065, type: 3}
 --- !u!1 &1029710534320424548 stripped
 GameObject:
@@ -95,42 +98,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!146 &-6267527810164287782
-WheelCollider:
+--- !u!135 &-1685261364140737327
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029710534320424548}
-  serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
-  m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
-    targetPosition: 0.5
-  m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 0.25
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 81920
   m_LayerOverridePriority: 0
-  m_Enabled: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.34999922
+  m_Center: {x: -0.06324971, y: 0.15718901, z: 0.0007106066}
+--- !u!114 &6682523635163501119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029710534320424548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bddfc00f3113945851f7765387a6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::projectile
+  lifeTime: 11
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  damage: 0
+  impactSound: {fileID: 8300000, guid: 7458960fa1830b84086c48c3f99d53bf, type: 3}
