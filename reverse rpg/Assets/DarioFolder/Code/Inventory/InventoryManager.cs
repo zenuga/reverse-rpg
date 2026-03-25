@@ -7,7 +7,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventoryItemPrefab;
     [SerializeField] private Transform playerHand;
     [SerializeField] private HealthSystem healthSystem;
-    [SerializeField] private CombatControler combatController;
 
     private int selectedSlot = -1;
     private GameObject equippedItemInstance;

@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class NavMesh : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject player;
+
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 targetPosition = player.transform.position; 
+        GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(targetPosition);
     }
 }

@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     
     private bool isOpen;
 
+
     
     void Update()
     {
