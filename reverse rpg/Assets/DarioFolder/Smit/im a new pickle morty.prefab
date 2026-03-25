@@ -61,6 +61,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4074e5d366fa5bc41ba73276b9e0a901, type: 3}
       insertIndex: -1
       addedObject: {fileID: -354124853361103464}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4074e5d366fa5bc41ba73276b9e0a901, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4842353761116024013}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4074e5d366fa5bc41ba73276b9e0a901, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9111447702590392833}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4074e5d366fa5bc41ba73276b9e0a901, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2660816017830710199}
   m_SourcePrefab: {fileID: 100100000, guid: 4074e5d366fa5bc41ba73276b9e0a901, type: 3}
 --- !u!1 &3036128721513998252 stripped
 GameObject:
@@ -89,3 +98,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &-4842353761116024013
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036128721513998252}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &9111447702590392833
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036128721513998252}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 16384
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &2660816017830710199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036128721513998252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e071862832d02ed44b7c3b447a660c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireBall
+  lifeTime: 2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  damage: 100
+  explosionEffect: {fileID: 1305147308160848103, guid: d657186629954574a84bb8f35daf75e2, type: 3}

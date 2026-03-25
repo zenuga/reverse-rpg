@@ -58,14 +58,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 170216798530976087, guid: 7dff0ce709dd003478551aef96565ee7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8092516696607121175}
+      addedObject: {fileID: 7760825463333722244}
   m_SourcePrefab: {fileID: 100100000, guid: 7dff0ce709dd003478551aef96565ee7, type: 3}
 --- !u!1 &4134382913037883475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 170216798530976087, guid: 7dff0ce709dd003478551aef96565ee7, type: 3}
   m_PrefabInstance: {fileID: 4268563744066330884}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8092516696607121175
+--- !u!114 &7760825463333722244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,12 +74,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4134382913037883475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e071862832d02ed44b7c3b447a660c1b, type: 3}
+  m_Script: {fileID: 11500000, guid: d181f471abb140c45b683e2d28f78710, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FireBall
-  lifeTime: 10
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 32768
-  damage: 40
-  explosionEffect: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Magic
+  projectilePrefab: {fileID: 3036128721513998252, guid: d302ef3a464ee2149a58c5433f8b3493, type: 3}
+  firePoint: {fileID: 0}
+  projectileSpeed: 0
+  attackCooldown: 0
+  baseAttackCooldown: 0
+  attackChargeTime: 0
