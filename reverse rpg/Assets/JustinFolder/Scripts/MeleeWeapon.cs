@@ -6,7 +6,7 @@ public class MeleeWeapon : BaseWeaponScript
     public float attackRange = 2f;
     public Transform firePoint;
     public LayerMask hitLayer;
-    float attackCooldown = 1f;
+    public float attackCooldown = 1f;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class MeleeWeapon : BaseWeaponScript
         }
     }
 
-    void Update()
+    public override void UpdateStats()
     {
         attackCooldown -= Time.deltaTime;
     }
@@ -30,6 +30,9 @@ public class MeleeWeapon : BaseWeaponScript
     {
         base.Attack();
         
+        Debug.Log("Melee attack initiated.");
+
+
         RaycastHit hit;
 
         if (attackCooldown <= 0f)
