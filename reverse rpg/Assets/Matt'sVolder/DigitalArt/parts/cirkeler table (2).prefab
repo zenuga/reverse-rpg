@@ -69,6 +69,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e94d071afd0d5944f83daea4a466c887, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7885096815372423415}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e94d071afd0d5944f83daea4a466c887, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1565960493786039767}
   m_SourcePrefab: {fileID: 100100000, guid: e94d071afd0d5944f83daea4a466c887, type: 3}
 --- !u!1 &4751135157818791424 stripped
 GameObject:
@@ -122,4 +125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753db055641e1674da5bffa2ccb840cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  expReward: 25
+  player: {fileID: 0}
+  expAmount: 25
+--- !u!114 &-1565960493786039767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4751135157818791424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca82eade2d774745823880f45e0a946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDropper
+  lootTable: []

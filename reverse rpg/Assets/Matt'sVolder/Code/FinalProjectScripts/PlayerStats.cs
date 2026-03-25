@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     public int currentExp = 0;
     public int expToNextLevel = 100;
     public int statPoints = 0;
+    public int techtreePoints = 0;
 
     [Header("Stats")]
     public int maxHP = 100;
@@ -31,7 +32,7 @@ public class PlayerStats : MonoBehaviour
 {
     CheckLevelUp();
 
-    if (Keyboard.current != null && Keyboard.current.cKey.wasPressedThisFrame)
+    if (Keyboard.current.cKey.wasPressedThisFrame)
     {
         Debug.Log("C key pressed. Toggling menu.");
 
@@ -60,8 +61,9 @@ public class PlayerStats : MonoBehaviour
     void LevelUp()
     {
         level++;
-        statPoints += 5;
-        expToNextLevel = Mathf.RoundToInt(expToNextLevel * 1.2f);
+        statPoints += 2;
+        techtreePoints += 1;
+        expToNextLevel = Mathf.RoundToInt(expToNextLevel * 1.5f);
 
         Debug.Log("Level Up! Level: " + level);
     }
@@ -95,7 +97,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (statPoints <= 0) return;
 
-        maxHP += 10;
+        maxHP -= 10;
         statPoints--;
 
         Debug.Log("HP Upgraded! Current HP: " + maxHP);
@@ -105,7 +107,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (statPoints <= 0) return;
 
-        defense += 2;
+        defense -= 2;
         statPoints--;
 
         Debug.Log("Defense Upgraded! Current Defense: " + defense);
@@ -115,7 +117,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (statPoints <= 0) return;
 
-        attack += 3;
+        attack -= 2;
         statPoints--;
 
         Debug.Log("Attack Upgraded! Current Attack: " + attack);
@@ -125,7 +127,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (statPoints <= 0) return;
 
-        attackSpeed += 0.1f;
+        attackSpeed -= 0.2f;
         statPoints--;
 
         Debug.Log("Attack Speed Upgraded! Current Attack Speed: " + attackSpeed);
@@ -135,7 +137,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (statPoints <= 0) return;
 
-        moveSpeed += 0.5f;
+        moveSpeed -= 0.5f;
         statPoints--;
 
         Debug.Log("Move Speed Upgraded! Current Move Speed: " + moveSpeed);

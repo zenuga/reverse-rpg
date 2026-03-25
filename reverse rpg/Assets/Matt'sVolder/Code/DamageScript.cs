@@ -12,10 +12,10 @@ public class ExplosionDamage : MonoBehaviour
 
         foreach (Collider col in colliders)     // gaat door alle objecten heen in radius
         {
-            Health health = col.GetComponent<Health>();     // vindt health script van object
-            if (health != null)     // als die er is roept die TakeDamage aan
+            Health enemy = col.GetComponent<Health>();     // vindt health script van object
+            if (enemy != null)     // als die er is roept die TakeDamage aan
             {
-                health.TakeDamage(damage);     // geeft schade door
+                enemy.TakeDamage(damage);     // geeft schade door
             }
         }
     }
