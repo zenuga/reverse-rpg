@@ -15,8 +15,11 @@ public class RangedWeapon : BaseWeaponScript
     public float attackCooldown;
     public float baseAttackCooldown;
     public float attackChargeTime;
+    public AudioClip fireSound;
     private float currentAttackCharge;
     private bool isAttacking;
+    private AudioSource audioSource;
+
 
     
 
@@ -31,6 +34,12 @@ public class RangedWeapon : BaseWeaponScript
                 firePoint = cam.transform;
             }
         }
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public override void UpdateStats()
@@ -44,6 +53,11 @@ public class RangedWeapon : BaseWeaponScript
             rb.linearVelocity = firePoint.forward * projectileSpeed;
 
             attackCooldown = baseAttackCooldown;
+
+            if (fireSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(fireSound);
+            }
 
             currentAttackCharge = 0f;
 
