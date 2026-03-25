@@ -31,7 +31,7 @@ public class projectile : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision collision)
     {
-        bool hitFloor = collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Ground");
+        bool hitFloor = collision.gameObject;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
