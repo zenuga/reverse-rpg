@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class RangedWeapon : BaseWeaponScript
 {
@@ -16,6 +17,21 @@ public class RangedWeapon : BaseWeaponScript
     public float attackChargeTime;
     private float currentAttackCharge;
     private bool isAttacking;
+
+    
+
+    private void Awake()
+    {
+        if (firePoint == null)
+        {
+            Camera cam = Camera.main;
+
+            if (cam != null)
+            {
+                firePoint = cam.transform;
+            }
+        }
+    }
 
     public override void UpdateStats()
     {
@@ -40,6 +56,7 @@ public class RangedWeapon : BaseWeaponScript
 
             isAttacking = false;
         }
+
     }
 
 
