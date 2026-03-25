@@ -9,28 +9,20 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     public Color selected, notselected;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI statText;
+    
 
     public ItemType slotType = ItemType.General;
-    [SerializeField] private HealthSystem healthSystem;
+    public HealthSystem healthSystem;
 
     [Header("Special Slot Settings")]
-    [SerializeField] private bool isSpecialSlot = false;
+    public bool isSpecialSlot = false;
+
     private ItemScript currentItemInSlot;
+    private GameObject currentItemInstance;
 
     private void Awake()
     {
         deselect();
-    }
-
-    public void select()
-    {
-        if (image != null)
-        {
-            Color color = Color.white;
-            color.a = 250f / 255f;
-            image.color = color;
-        }
-        UpdateDescriptionText();
     }
 
     private void UpdateDescriptionText()
@@ -38,22 +30,55 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         if (descriptionText == null) return;
 
         InventoryItem inventoryItem = GetComponentInChildren<InventoryItem>();
-        if (inventoryItem != null && inventoryItem.item != null && !string.IsNullOrEmpty(inventoryItem.item.description))
+
+        if (inventoryItem != null && inventoryItem.item != null)
         {
-            descriptionText.text = inventoryItem.item.description;
+            descriptionText.text = inventoryItem.item.description ?? "";
+            statText.text = inventoryItem.item.stat ?? "";
         }
         else
         {
             descriptionText.text = "";
-        }
-                if (inventoryItem != null && inventoryItem.item != null && !string.IsNullOrEmpty(inventoryItem.item.stat))
-        {
-            statText.text = inventoryItem.item.stat;
-        }
-        else
-        {
             statText.text = "";
         }
+    }
+
+    public void select()
+    {
+        InventoryItem inventoryItem = GetComponentInChildren<InventoryItem>();
+        if (inventoryItem == null || inventoryItem.item == null) return;
+
+        if (image != null)
+        {
+            Color color = Color.white;
+            color.a = 250f / 255f;
+            image.color = color;
+        }
+
+        
+        if (currentItemInstance != null)
+        {
+            Destroy(currentItemInstance);
+            currentItemInstance = null;
+        }
+
+        
+        if (inventoryItem.item.worldModel != null)
+        {
+            GameObject hand = GameObject.Find("Hand");
+            if (hand != null)
+            {
+                currentItemInstance = Instantiate(inventoryItem.item.worldModel, hand.transform);
+                currentItemInstance.transform.localPosition = Vector3.zero;
+                currentItemInstance.transform.localRotation = Quaternion.identity;
+            }
+            else
+            {
+                Debug.LogWarning("Hand object not found in scene!");
+            }
+        }
+
+        UpdateDescriptionText();
     }
 
     public void deselect()
@@ -64,41 +89,55 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             color.a = 210f / 255f;
             image.color = color;
         }
+
+        if (currentItemInstance != null)
+        {
+            Destroy(currentItemInstance);
+            currentItemInstance = null;
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        InventoryItem inventoryItem = eventData.pointerDrag?.GetComponent<InventoryItem>();
-        if (inventoryItem == null || inventoryItem.item == null) return;
+        InventoryItem draggedItem = eventData.pointerDrag?.GetComponent<InventoryItem>();
+        if (draggedItem == null || draggedItem.item == null) return;
 
-        if (slotType != ItemType.General && inventoryItem.item.itemType != slotType) return;
+        if (slotType != ItemType.General && draggedItem.item.itemType != slotType) return;
 
-        InventoryItem existingItem = GetComponentInChildren<InventoryItem>();
-
-        // Remove old slot effect
-        if (isSpecialSlot && currentItemInSlot != null && healthSystem != null)
+        InventoryItem existingItem = null;
+        foreach (Transform child in transform)
         {
-            healthSystem.RemoveSlotEffect(currentItemInSlot);
-            currentItemInSlot = null;
+            InventoryItem item = child.GetComponent<InventoryItem>();
+            if (item != null && item != draggedItem)
+            {
+                existingItem = item;
+                break;
+            }
         }
 
-        // Replace existing item if needed
-        if (existingItem != null && existingItem != inventoryItem)
+        if (isSpecialSlot && healthSystem != null && existingItem != null && existingItem.item != null)
         {
-            existingItem.transform.SetParent(inventoryItem.parentAfterDrag);
+            healthSystem.RemoveSlotEffect(existingItem.item);
         }
 
-        // Place new item
-        inventoryItem.transform.SetParent(transform);
-        inventoryItem.transform.SetAsLastSibling();
-        inventoryItem.parentAfterDrag = transform;
+        
+        if (existingItem != null && existingItem != draggedItem)
+        {
+            Transform fallbackParent = draggedItem.parentAfterDrag;
+
+            if (fallbackParent != null)
+                existingItem.transform.SetParent(fallbackParent);
+        }
+
+        draggedItem.transform.SetParent(transform);
+        draggedItem.transform.SetAsLastSibling();
+        draggedItem.parentAfterDrag = transform;
 
         UpdateDescriptionText();
 
-        // Apply special slot effect
         if (isSpecialSlot && healthSystem != null)
         {
-            currentItemInSlot = inventoryItem.item;
+            currentItemInSlot = draggedItem.item;
             healthSystem.ApplySlotEffect(currentItemInSlot);
         }
     }

@@ -14,7 +14,7 @@ public enum ItemType
     Boots,
     Weapon,
     Shield,
-    Accessory
+    charm
 }
 
 public enum SlotStatType

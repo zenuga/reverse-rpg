@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private GameObject inventoryUI2;
     
    
     [SerializeField] private PlayerMovement movementScript; 
@@ -25,6 +26,7 @@ public class Inventory : MonoBehaviour
         if (inventoryUI == null) return;
         isOpen = !isOpen;
         inventoryUI.SetActive(isOpen);
+        inventoryUI2.SetActive(isOpen);
         if (isOpen)
         {
 

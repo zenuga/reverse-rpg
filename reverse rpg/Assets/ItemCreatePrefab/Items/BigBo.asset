@@ -15,9 +15,9 @@ MonoBehaviour:
   itemType: 5
   itemName: wand
   description: magic i gues
+  stat: 
   maxStackSize: 1
   slotStatType: 0
   slotStatValue: 0
-  worldModel: {fileID: 170216798530976087, guid: 7dff0ce709dd003478551aef96565ee7, type: 3}
-  weaponData: {fileID: 0}
+  worldModel: {fileID: 4173459137518843951, guid: 090dc90f294fee8438bfd8c3e568a9ae, type: 3}
   image: {fileID: 21300000, guid: 2a94d148977ec6f499cf36f6cfa4e31b, type: 3}
