@@ -16,5 +16,4 @@ public class Bow : RangedWeapon
     {
         base.Attack();
     }
-
 }

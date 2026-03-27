@@ -44,6 +44,9 @@ public class RangedWeapon : BaseWeaponScript
 
     public override void UpdateStats()
     {
+
+        base.UpdateStats();
+
         attackCooldown -= Time.deltaTime;
 
         if (currentAttackCharge >= attackChargeTime && !Input.GetMouseButton(0) && isAttacking)
@@ -70,7 +73,6 @@ public class RangedWeapon : BaseWeaponScript
 
             isAttacking = false;
         }
-
     }
 
 

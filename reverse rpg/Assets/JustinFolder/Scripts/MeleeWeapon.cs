@@ -23,6 +23,8 @@ public class MeleeWeapon : BaseWeaponScript
 
     public override void UpdateStats()
     {
+        base.UpdateStats();
+
         attackCooldown -= Time.deltaTime;
     }
     
@@ -39,7 +41,6 @@ public class MeleeWeapon : BaseWeaponScript
         {
             if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, attackRange, hitLayer))
             {
-            
                 HealthSystem healthSystem = hit.collider.GetComponent<HealthSystem>();
 
                 if (healthSystem != null)
@@ -56,7 +57,6 @@ public class MeleeWeapon : BaseWeaponScript
             }
             
             attackCooldown = 1f;
-
         }
 
         else

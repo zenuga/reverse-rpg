@@ -11,11 +11,6 @@ public class BaseWeaponScript : MonoBehaviour
     void Update()
     {
         UpdateStats();  
-
-        if (Input.GetMouseButton(0))
-        {
-            Attack();
-        }
     }
 
 
@@ -23,8 +18,11 @@ public class BaseWeaponScript : MonoBehaviour
 //-----------------------------------------------------------------------------------------------------
 
     public virtual void UpdateStats()
-    {
-
+    {        
+        if (Input.GetMouseButton(0))
+        {
+            Attack();
+        }
     }
 
     public virtual void Init()

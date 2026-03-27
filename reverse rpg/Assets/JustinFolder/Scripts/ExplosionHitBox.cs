@@ -7,7 +7,6 @@ public class ExplosionHitBox : MonoBehaviour
     public float explosionRadius = 5f;
     public float force = 1500.0f;
     public bool explodeOnStart = false;
-    private float delayTimer;
 
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +30,6 @@ public class ExplosionHitBox : MonoBehaviour
         ExplosionForce();
 
         Debug.Log("Explosion collided with: " + other.gameObject.name);
-
     }
 
     private void ExplosionForce()
@@ -48,8 +46,4 @@ public class ExplosionHitBox : MonoBehaviour
             }
         }
     }
-
-
-
-
 }
